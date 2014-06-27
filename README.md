@@ -1,7 +1,9 @@
 pass
 ====
 
-Web-based Program for Management of Study Hall Requests
+"Promoting Academic Student Success"
+
+A Web-based Program for Management of Study Hall Requests
 
 ====
 
@@ -17,7 +19,7 @@ The school I worked at during the 2013-2014 school year uses block scheduling.  
 
 Teachers can request students for a variety of reasons.  They request students through the program.  In the case of multiple requests for the same student, the program determines through a system of trumps (day of the week, category of request, time request was made) which teacher the student will be sent to.  Each subject (English, Math, Social Studies, Science, Other) has a day of the week (Monday through Friday) when it receives preferential treatment by the trump system.
 
-If you would like to use this code to implement a similar system, please keep in mind that I did not have a lot of time to implement this program before the start of school, so it is not as efficient as it should be and it lacks a proper administrative interface for managing students.  It clunkily made use of an existing user database (catnet.user below) tied in to our school's active directory, and this database was not optimized for this program.  The program was integrated into an intranet system already in place that required teachers to log in to it; the keyid being passed back and forth tells the system who is logged in and handles the session, and it is also based on the catnet.user table below.
+If you would like to use this code to implement a similar system, please keep in mind that I did not have a lot of time to implement and refine this program before the start of school, so it is not as efficient as it should be and it lacks a proper administrative interface for managing students.  It clunkily made use of an existing user database (catnet.user below) tied in to our school's active directory, and this database was not optimized for this program.  The program was integrated into an intranet system already in place that required teachers to log in to it; the keyid being passed back and forth tells the system who is logged in and handles the session, and it is also based on the catnet.user table below.
 
 I am only placing the files on here that I wrote for this program.  Files that relate to the log-in system for the intranet server are not here, but I am marking them in the program so that they can be replaced with other systems for handling users.
 
