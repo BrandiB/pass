@@ -1,5 +1,11 @@
 <?php
 
+/*
+	This inserts a request into the database.
+*/
+
+// FROM HERE (until below where I say UNTIL HERE) is the intranet user authentication stuff which would need changing 
+
 $path = $_SERVER['DOCUMENT_ROOT'] . '/peds/pass/includes/catnetapps.inc';
 require_once $path;
 
@@ -7,6 +13,9 @@ require_once $path;
 $catn= NEW CatnetApps();
 $keyid = $catn->getVariable("keyid");
 $catn->setUserInfo($keyid);
+$catn->dbconnect("catnet",$catn->dbuser,$catn->dbpassword);
+
+// UNTIL HERE - note that this includes the database connection, so that would have to be redone as well
 
 $whichStudent = $catn->getVariable("whichStudent");
 $whichCategory = $catn->getVariable("whichCategory");
@@ -31,8 +40,6 @@ $dayFull[4] = date("D, M j", strtotime('Thursday next week'));
 $dayFull[5] = date("D, M j", strtotime('Friday next week'));
 $whichForm = 'manageRoster.php';
 }
-
-$catn->dbconnect("catnet",$catn->dbuser,$catn->dbpassword);
 
 $theDay = 1; //counter for the days
 
