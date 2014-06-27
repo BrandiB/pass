@@ -1,4 +1,16 @@
 <?php
+
+/*
+	You may not even need this - this synced the pass database (and catnet.user intranet database)
+	with Active Directory using special functions in our intranet framework.  In order to be recognized
+	by this, students would have to belong to the "pass" group in active directory.  There is also extra
+	code here since names with apostraphes and hyphens and the like do not work well with active directory and
+	would cause duplicates or errors.
+*/
+
+// FROM HERE (until below where I say UNTIL HERE) is the intranet user authentication stuff which would need changing 
+
+
 $path = $_SERVER['DOCUMENT_ROOT'] . '/peds/pass/includes/catnetapps.inc';
 require_once $path;
 
@@ -8,11 +20,15 @@ $catn= NEW CatnetApps();
 $keyid = $catn->getVariable("keyid");
 $catn->setUserInfo($keyid);
 
-$whichGroup = $catn->getVariable("whichGroup");
-
 $catn->dbconnect("catnet",$catn->dbuser,$catn->dbpassword);
 
-$members = $catn->getADGroupMembers($whichGroup);
+$members = $catn->getADGroupMembers($whichGroup); // ACTIVE DIRECTORY
+
+
+// UNTIL HERE - note that this includes the database connection, so that would have to be redone as well
+
+$whichGroup = $catn->getVariable("whichGroup");
+
 
 // Cycle through the listings in AD
 foreach($members as $value) {
