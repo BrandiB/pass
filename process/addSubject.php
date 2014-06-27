@@ -4,7 +4,7 @@
 	This adds a new subject. It takes in whichSubject - the name of the subject - and whichTrumpDay - the day of the week when this subject will have trumping ability.
 */
 
-// UNTIL HERE - note that this includes the database connection, so that would have to be redone as well
+// FROM HERE (until below where I say UNTIL HERE) is the intranet user authentication stuff which would need changing 
 $path = $_SERVER['DOCUMENT_ROOT'] . '/peds/pass/includes/catnetapps.inc';
 require_once $path;
 
