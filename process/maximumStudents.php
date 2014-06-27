@@ -1,4 +1,11 @@
 <?php
+
+/*
+	This changes a teacher's preferred maximum number of students.
+*/
+
+// FROM HERE (until below where I say UNTIL HERE) is the intranet user authentication stuff which would need changing 
+
 $path = $_SERVER['DOCUMENT_ROOT'] . '/peds/pass/includes/catnetapps.inc';
 require_once $path;
 
@@ -11,6 +18,8 @@ $whichProcess = $catn->getVariable("whichProcess");
 $catn->setUserInfo($keyid);
 
 $catn->dbconnect("catnet",$catn->dbuser,$catn->dbpassword);
+
+// UNTIL HERE - note that this includes the database connection, so that would have to be redone as well
 
 echo "<script language='JavaScript'>
 	function displayRosterManage() {
