@@ -1,7 +1,10 @@
 <?php
 
 /*
-	This adds a special request to the database - it sends a student to a teacher who has been designated for overflow.  At our school, both overflow teachers accepted students at the same location (the gym) so the name wasn't important.  This may be different at other schools where multiple locations are necessary, and the program may need to be adjusted accordingly.
+	This adds a special request to the database - it sends a student to a teacher who has been designated for 
+	overflow.  At our school, both overflow teachers accepted students at the same location (the gym) so the 
+	specific teacher they were sent to wasn't important.  This may be different at other schools where multiple 
+	locations are necessary, and the program may need to be adjusted accordingly.
 */
 
 // FROM HERE (until below where I say UNTIL HERE) is the intranet user authentication stuff which would need changing 
