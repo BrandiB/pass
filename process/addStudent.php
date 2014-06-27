@@ -1,4 +1,10 @@
 <?php
+
+/*
+	This adds a student to a particular homeroom and removes them from their previous homeroom. This is passed in a teacher and a student.
+*/
+
+// UNTIL HERE - note that this includes the database connection, so that would have to be redone as well
 $path = $_SERVER['DOCUMENT_ROOT'] . '/peds/pass/includes/catnetapps.inc';
 require_once $path;
 
@@ -9,6 +15,7 @@ $keyid = $catn->getVariable("keyid");
 $catn->setUserInfo($keyid);
 
 $catn->dbconnect("catnet",$catn->dbuser,$catn->dbpassword);
+// UNTIL HERE - note that this includes the database connection, so that would have to be redone as well
 
 $whichTeacher = $catn->getVariable("whichTeacher");
 $whichStudent = $catn->getVariable("whichStudent");
