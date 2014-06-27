@@ -1,5 +1,5 @@
-<!-- All this does is start up PASS within our district's existing intranet framework.  The actual program ("pass/templates/pass.php" <-- go here) is loaded into #datadsiplay, the main display frame in that framework.-->
-<!-- The catnetapps.inc file (not included here) passes along the logged-in user session info-->
+<!-- All this does is start up PASS within our district's existing intranet framework.  The actual program ("pass/templates/pass.php"  go here) is loaded into #datadsiplay, the main display frame in that framework.-->
+<!-- The catnetapps.inc file (not included here) passes along the logged-in user session info -->
 
 <?php
 $path = $_SERVER['DOCUMENT_ROOT'] . '/peds/pass/includes/catnetapps.inc';
