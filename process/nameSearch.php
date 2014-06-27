@@ -1,17 +1,27 @@
 <?php
+
+/*
+	This searches the database for a student via name or chunk of name. "Sam" will return "Samantha" or "Samuel", for instance.
+*/
+
+// FROM HERE (until below where I say UNTIL HERE) is the intranet user authentication stuff which would need changing 
+
 $path = $_SERVER['DOCUMENT_ROOT'] . '/peds/pass/includes/catnetapps.inc';
 require_once $path;
 
 // instantiate class
 $catn= NEW CatnetApps();
 
+$catn->dbconnect("catnet",$catn->dbuser,$catn->dbpassword);
+
+// UNTIL HERE - note that this includes the database connection, so that would have to be redone as well
+
 $searchLastName = $catn->getVariable("lastName");
 $searchFirstName = $catn->getVariable("firstName");
 
 //this will display the search results in a drop-down box:
-	$studentList = "<select id='theStudent'><option value='0' selected>Select a Student:</option>";
+$studentList = "<select id='theStudent'><option value='0' selected>Select a Student:</option>";
 
-$catn->dbconnect("catnet",$catn->dbuser,$catn->dbpassword);
 // set query depending on if last name or first name is null; this page should not be called if both are null
 if ($searchLastName == '') {
 	$query = "select user.userID, user.firstName, user.lastName, students.classOf from catnet.user, pass.students where user.firstName like '%".$searchFirstName."%' and students.userID=user.userID and students.isEnabled=1 order by user.lastName, user.firstName";
