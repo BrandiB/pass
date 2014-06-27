@@ -1,4 +1,11 @@
 <?php
+
+/*
+	deletes a request category from the database
+*/
+
+// FROM HERE (until below where I say UNTIL HERE) is the intranet user authentication stuff which would need changing 
+
 $path = $_SERVER['DOCUMENT_ROOT'] . '/peds/pass/includes/catnetapps.inc';
 require_once $path;
 
@@ -9,6 +16,8 @@ $keyid = $catn->getVariable("keyid");
 $catn->setUserInfo($keyid);
 
 $catn->dbconnect("catnet",$catn->dbuser,$catn->dbpassword);
+
+// UNTIL HERE - note that this includes the database connection, so that would have to be redone as well
 
 $someCategory = $catn->getVariable("someCategory");
 
