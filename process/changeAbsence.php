@@ -1,4 +1,13 @@
 <?php
+
+/*
+	This updates a student's status from absent to present, or from present to absent.
+*/
+
+
+// FROM HERE (until below where I say UNTIL HERE) is the intranet user authentication stuff which would need changing 
+
+
 $path = $_SERVER['DOCUMENT_ROOT'] . '/peds/pass/includes/catnetapps.inc';
 require_once $path;
 
@@ -8,6 +17,8 @@ $catn= NEW CatnetApps();
 $keyid = $catn->getVariable("keyid");
 $catn->setUserInfo($keyid);
 $catn->dbconnect("catnet",$catn->dbuser,$catn->dbpassword);
+
+// UNTIL HERE - note that this includes the database connection, so that would have to be redone as well
 
 $whichStudent = $catn->getVariable("whichStudent");
 $whichDay = $catn->getVariable("whichDay");
