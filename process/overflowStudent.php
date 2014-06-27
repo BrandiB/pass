@@ -1,5 +1,11 @@
 <?php
 
+/*
+	This adds a special request to the database - it sends a student to a teacher who has been designated for overflow.  At our school, both overflow teachers accepted students at the same location (the gym) so the name wasn't important.  This may be different at other schools where multiple locations are necessary, and the program may need to be adjusted accordingly.
+*/
+
+// FROM HERE (until below where I say UNTIL HERE) is the intranet user authentication stuff which would need changing 
+
 $path = $_SERVER['DOCUMENT_ROOT'] . '/peds/pass/includes/catnetapps.inc';
 require_once $path;
 
@@ -7,6 +13,10 @@ require_once $path;
 $catn= NEW CatnetApps();
 $keyid = $catn->getVariable("keyid");
 $catn->setUserInfo($keyid);
+$catn->dbconnect("catnet",$catn->dbuser,$catn->dbpassword);
+
+// UNTIL HERE - note that this includes the database connection, so that would have to be redone as well
+
 $whichWeek = $catn->getVariable("whichWeek");
 
 //Times
@@ -30,7 +40,6 @@ $theDay = $catn->getVariable("theDay");
 $theTeacher = $catn->getVariable("theTeacher");
 $whichStudent = $catn->getVariable("whichStudent");
 
-$catn->dbconnect("catnet",$catn->dbuser,$catn->dbpassword);
 
 // Find out which categoryID is Overflow (in case it gets changed)
 $query = "select categoryID from pass.category where categoryName = 'Overflow'";
